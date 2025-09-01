@@ -270,7 +270,17 @@
                     <span>관련사이트</span>
                     <span><i class="fa-solid fa-angle-down"></i></span>
                 </button>
+
+                <div class="dropdown_content is_active">
+                    <ul>
+                        <li><a href="#"><span>카카오뱅크 AD</span></a></li>
+                        <li><a href="#"><span>카카오뱅크 인증서</span></a></li>
+                        <li><a href="#"><span>금융기술연구소</span></a></li>
+                        <li><a href="#"><span>기술블로그</span></a></li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </header>
 
@@ -385,6 +395,10 @@
             position: relative;
         } 
 
+        header .menu_box a:hover {
+            text-decoration: underline;
+        }
+
         header .menu_box > ul > li > a::after {
             content: "";
             position: absolute;
@@ -443,6 +457,10 @@
         }
 
         /* dropdown menu */
+        header .dropdown {
+            position: relative;
+        }
+
         header .dropdown .dropBtn {
             background: rgba(244, 244, 244, 0.8) ;
             color: rgba(68, 68, 68, 1);
@@ -458,6 +476,40 @@
             margin-left: 5px;
             display: inline-block;
         }
+
+        header .dropdown .dropdown_content {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            width: 240px;
+            line-height: 48px;
+            border-radius: 6px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+            font-size: 13px;
+            margin-top: 29px;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        header .dropdown .dropdown_content.is_active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        header .dropdown .dropdown_content.is_active a {
+            font-size: 13px;
+            display: block;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        header .dropdown .dropdown_content.is_active a:hover {
+            text-decoration: underline;
+            background-color: #f7f7f7;
+        }
+        
         /* -------------------- 헤더 끝 -------------------- */
     </style>
 </body>
