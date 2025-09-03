@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--- 제이쿼리 --->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--- 폰트어썸 --->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <header class="con-min-width">
@@ -32,8 +34,8 @@
                                             <li><a href="#" class="block">주주사 소개</a></li>
                                             <li><a href="#" class="block">오시는 길</a></li>
                                             <li><a href="#" class="block">제휴문의</a></li>
-                                            <li><a href="#" class="block">금융기술연구소</a></li>
-                                            <li><a href="#" class="block">카카오뱅크 인증서</a></li>
+                                            <li><a href="#" class="block" target="_blank">금융기술연구소</a></li>
+                                            <li><a href="#" class="block" target="_blank">카카오뱅크 인증서</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -50,7 +52,7 @@
                                             <li><a href="#" class="block">입찰공고</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" class="block">인재영입</a></li>
+                                    <li><a href="#" class="block" target="_blank">인재영입</a></li>
                                 </ul>
                             </div>
                     </div>
@@ -101,7 +103,7 @@
                                         <a href="#" class="block">IR일정</a>
                                         <ul>
                                             <li><a href="#" class="block">IR행사</a></li>
-                                            <li><a href="#" class="block">IR미팅예약</a></li>
+                                            <li><a href="#" class="block" target="_blank">IR미팅예약</a></li>
                                             <li><a href="#" class="block">주주총회</a></li>
                                         </ul>
                                     </li>
@@ -265,18 +267,15 @@
                 </ul>
             </nav>
 
-            <div class="dropdown flex-as-c border-red">
-                <button class="dropBtn">
-                    <span>관련사이트</span>
-                    <span><i class="fa-solid fa-angle-down"></i></span>
-                </button>
+            <div class="dropdown flex-as-c">
+                <button class="dropBtn">관련사이트</button>
 
-                <div class="dropdown_content is_active">
+                <div class="dropdown_content">
                     <ul>
-                        <li><a href="#"><span>카카오뱅크 AD</span></a></li>
-                        <li><a href="#"><span>카카오뱅크 인증서</span></a></li>
-                        <li><a href="#"><span>금융기술연구소</span></a></li>
-                        <li><a href="#"><span>기술블로그</span></a></li>
+                        <li><a href="#" target="_blank"><span>카카오뱅크 AD</span></a></li>
+                        <li><a href="#" target="_blank"><span>카카오뱅크 인증서</span></a></li>
+                        <li><a href="#" target="_blank"><span>금융기술연구소</span></a></li>
+                        <li><a href="#" target="_blank"><span>기술블로그</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -449,6 +448,25 @@
             text-align: center;
         }
 
+        header .menu_box .menu_box-sec_menu ul li a[target="_blank"]::after {
+            content: ""; 
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background: url(../imgs/svg_line_outlink.svg);
+            background-size: 14px 14px;
+            margin-left: 8px;
+            margin-top: -2px;
+            vertical-align: middle;
+        }
+        
+        header .menu_box .menu_box-sec_menu > ul > li > a[target="_blank"]::after {
+            width: 18px;
+            height: 18px;
+            background-size: 18px 18px;
+            margin-top: -5px;
+        }
+
         header .menu_box .menu_box-sec_menu > ul ul > li > a {
             margin-bottom: 24px;
             font-size: 13px;
@@ -472,16 +490,27 @@
             font-size: 15px;
             cursor: pointer;
         }
-        header .dropdown .dropBtn .ico {
-            margin-left: 5px;
+
+        header .dropdown .dropBtn::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            margin-left: 10px;
+            background: url(https://kakaobank.com/static/images/web/svg_line_arrow_down.svg); 
+            background-size: 12px 12px;
             display: inline-block;
+            transition: all .3s;
+        }
+
+        header .dropdown .dropBtn.rotate::after {
+            transform: rotate(-180deg);
         }
 
         header .dropdown .dropdown_content {
             position: absolute;
             left: 50%;
             top: 100%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(4px);
             width: 240px;
             line-height: 48px;
             border-radius: 6px;
@@ -491,26 +520,55 @@
             margin-top: 29px;
             visibility: hidden;
             opacity: 0;
+            transition: all .1s linear;
         }
 
         header .dropdown .dropdown_content.is_active {
             visibility: visible;
             opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
-        header .dropdown .dropdown_content.is_active a {
+        header .dropdown .dropdown_content a {
             font-size: 13px;
             display: block;
             padding: 0 24px;
             box-sizing: border-box;
         }
 
-        header .dropdown .dropdown_content.is_active a:hover {
+        header .dropdown .dropdown_content a:hover {
             text-decoration: underline;
             background-color: #f7f7f7;
         }
-        
+
+        header .dropdown .dropdown_content a[target="_blank"]::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: url(https://kakaobank.com/static/images/web/svg_line_outlink.svg);
+            background-size: 12px 12px;
+            margin-left: 8px;
+            margin-top: -3px;
+            vertical-align: middle;
+        }
+
         /* -------------------- 헤더 끝 -------------------- */
     </style>
+
+    <script>
+        $('.dropBtn').click(function(){
+            var dropdownContent = $('.dropdown_content');
+            var $this = $(this);
+
+            if (dropdownContent.hasClass('is_active')) {
+                dropdownContent.removeClass('is_active');
+                $this.removeClass('rotate');
+            }  else {
+                dropdownContent.addClass('is_active');
+                $this.addClass('rotate');
+            }
+        })
+    </script>
 </body>
 </html>
