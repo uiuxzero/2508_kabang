@@ -423,7 +423,6 @@
         /* 메뉴 박스 - 2차 */
         header .menu_box > ul > li > div {
             width: 100%;
-            height: 200px;
             background-color: #fff;
             position: absolute;
             top: 100%;
@@ -523,7 +522,6 @@
             border-radius: 6px;
             background-color: #fff;
             box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
-            font-size: 13px;
             margin-top: 29px;
             visibility: hidden;
             opacity: 0;
@@ -567,8 +565,8 @@
         }
 
         header .global_logo > img {
-            display: block;
             width: 100%;
+            display: block;
         }
 
         header .global_logo:hover > img {
@@ -579,17 +577,24 @@
     </style>
 
     <script>
-        $('.dropBtn').click(function(){
-            var dropdownContent = $('.dropdown_content');
-            var $this = $(this);
+        var $dropBtn = $('.dropBtn');
+        var dropdownContent = $('.dropdown_content');
 
-            if (dropdownContent.hasClass('is_active')) {
-                dropdownContent.removeClass('is_active');
-                $this.removeClass('rotate');
-            }  else {
-                dropdownContent.addClass('is_active');
-                $this.addClass('rotate');
+        $dropBtn.click(function() {
+            $dropdownContent.toggleClass ('is_active');
+            $dropBtn.toggleClass('rotate');
+        });
+
+        $(window).click(function(event) {
+            if ( !$(event.target).closest('.dropBtn').length) {
+                $('.dropdown_Content').removeClass('is_active');
+                $('.dropBtn').removeClass('rotate');
             }
+        });
+
+        $('.header .menu_box > ul > li').mouseenter(function() {
+            $('.dropdown_Content').removeClass('is_active');
+            $('.dropBtn').removeClass('rotate');
         })
     </script>
 </body>
