@@ -27,8 +27,18 @@
       </p>
 
       <ul class="btns flex">
-        <li><a href="#">Google play</a></li>
-        <li><a href="#">App Store</a></li>
+        <li>
+          <a href="#">
+            <span class="ico ico-1"></span>
+            <span>Google play</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="ico ico-2"></span>
+            <span>App Store</span>
+          </a>
+        </li>
       </ul>
 
     </div>
@@ -102,6 +112,14 @@
       display: block;
     }
 
+    .ico {
+      background-color: white;
+      width: 24px;
+      height: 24px;
+      display: block;
+      background-image: url(https://kakaobank.com/static/images/web/img_kabang_250717.png);
+    }
+
     /* 커스텀 */
     .con-min-width {
       min-width: 1080px;
@@ -134,10 +152,16 @@
       opacity: .7;
     }
 
-    .main_banner > .text_box > .btns {}
+    .main_banner > .text_box > .btns {
+      margin-top: 50px;
+    }
+
+    .main_banner > .text_box > .btns > li:first-child {
+      padding-right: 12px;
+    }
 
     .main_banner > .text_box > .btns > li > a {
-      display:  block;
+      display: block;
       width: 178px;
       height: 56px;
       border: 1px solid rgba(255, 255, 255, .3);
@@ -148,6 +172,25 @@
       color: #333;
       background-color: #fff;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main_banner > .text_box > .btns > li:hover > a {
+      text-decoration: underline;
+    }
+
+    .main_banner > .text_box > .btns .ico {
+      margin-right: 10px;
+    }
+
+    .main_banner > .text_box > .btns .ico-1 {
+      background-position: -341px -292px;
+    }
+
+    .main_banner > .text_box > .btns .ico-2 {
+      background-position: -371px -292px;
     }
 
     /* ------------- 메인배너 끝 ------------- */
